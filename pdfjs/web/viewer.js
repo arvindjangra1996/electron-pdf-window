@@ -7413,7 +7413,13 @@ var pdfjsWebLibs;
         var file;
         var queryString = document.location.search.substring(1);
         var params = parseQueryString(queryString);
-        file = 'file' in params ? params.file : DEFAULT_URL;
+
+        // Sentieo specific code
+
+        // remove "file=" from query string & all rest is pdf url
+        file = queryString.substr(5);
+
+        // file = 'file' in params ? params.file : DEFAULT_URL;
         validateFileURL(file);
         var waitForBeforeOpening = [];
         var appConfig = PDFViewerApplication.appConfig;

@@ -28,6 +28,13 @@ function getMimeOfFile (url) {
 }
 
 function hasPdfExtension (url) {
+  // Sentieo Specific code
+  // This file is for printing. It may not have pdf extension
+  // stdesktoppdf=true is the marker in url
+  if(url.includes('stdesktoppdf=true')){
+    return true;
+  }
+
   return url.match(/\.pdf$/i)
 }
 
